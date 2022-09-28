@@ -2,18 +2,27 @@ pipeline {
     agent any
 
     stages {
+	 stage('Print') {
+            steps {
+                echo 'in work..'
+            }
 		stage("cloning"){
 			steps{
-			script {
-          git credentialsId: 'userIdForGit', url: 'https://github.com/rahulrv2910/DemoSpringBootApplication.git'
+				script {
+					git credentialsId: 'userIdForGit', url: 'https://github.com/rahulrv2910/DemoSpringBootApplication.git'
               
                     }
 			}
 			}
-        stage('Print') {
-            steps {
-                echo 'in work..'
-            }
+		stage("building project"){
+			steps{
+				script{
+					sh 'mvn clean install'
+		
+		}
+		}
+		}
+       
         
         
         }
