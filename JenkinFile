@@ -1,1 +1,13 @@
-jenkinfile
+pipeline {
+    agent any
+
+    stages {
+        stage('Print') {
+            steps {
+                echo 'in work..'
+            }
+        
+        
+        }
+    }
+}
