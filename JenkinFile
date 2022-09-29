@@ -28,16 +28,7 @@ pipeline {
 			steps{
 			bat "mvn versions:property-updates-report"
 			}
-			}
-		stage("building project"){
-			steps{
-				script{
-					bat 'mvn clean install'
-		
-		}
-		}
-		}
-       
+			}       
         
         
         }
