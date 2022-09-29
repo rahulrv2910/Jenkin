@@ -23,7 +23,7 @@ pipeline {
 					-f "ALL"
 					--prettyPrint''', odcInstallation: 'OWASP-Dependency-check'
 					
-					dependencyCheckPublisher Pattern: 'dependency-check-report.html'
+					dependencyCheckPublisher pattern: 'dependency-check-report.html'
 			}
 			}
 		stage("building project"){
