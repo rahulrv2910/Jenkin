@@ -24,6 +24,11 @@ pipeline {
 					
 			}
 			}
+			stage("Generate version report"){
+			steps{
+			bat "mvn versions:property-updates-report"
+			}
+			}
 		stage("building project"){
 			steps{
 				script{
