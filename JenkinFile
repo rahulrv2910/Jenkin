@@ -18,8 +18,7 @@ pipeline {
 			stage("generating report"){
 			steps{
 			dependencyCheck additionalArguments: '''
-					-o "/Report"
-					-s "/jar"
+					-s "/"
 					-f "HTML"
 					--prettyPrint''', odcInstallation: 'OWASP-Dependency-check'
 					
