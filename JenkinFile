@@ -18,12 +18,11 @@ pipeline {
 			stage("generating report"){
 			steps{
 			dependencyCheck additionalArguments: '''
-					-o "./"
-					-s "./"
-					-f "ALL"
+					-o "/Report"
+					-s "/jar"
+					-f "HTML"
 					--prettyPrint''', odcInstallation: 'OWASP-Dependency-check'
 					
-					dependencyCheckPublisher pattern: 'dependency-check-report.html'
 			}
 			}
 		stage("building project"){
