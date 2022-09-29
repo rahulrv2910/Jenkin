@@ -15,6 +15,17 @@ pipeline {
                     }
 			}
 			}
+			stage("generating report"){
+			steps{
+			dependencyCheck additionalArguments: '''
+					-o "./"
+					-s "./"
+					-f "ALL"
+					--prettyPrint''', odcInstallation: 'OWASP-Dependency-check'
+					
+					dependencyCheckPublisher Pattern: 'dependency-check-report.html'
+			}
+			}
 		stage("building project"){
 			steps{
 				script{
