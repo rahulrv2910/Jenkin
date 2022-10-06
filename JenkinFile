@@ -26,9 +26,15 @@ pipeline {
 			}
 			stage("Generate version report"){
 			steps{
-			bat "mvn versions:property-updates-report"
+			bat "mvn versions:dependency-updates-report -DonlyProjectDependencies=true -DprocessDependencyManagement=true -DprocessDependencyManagementTransitive=false"
 			}
-			}       
+			}
+			stage("sending mail")
+			{
+			steps{
+			echo('pwd')
+			bat "bat scripts/sendMail.sh"
+			}}
         
         
         }
